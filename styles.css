@@ -113,11 +113,12 @@ h1, h2, h3 {
 #projects, /* Giả định ID cho Personal Projects */
 #experience /* Giả định ID cho Work Experience & Education */
 {
-    background-color: white;
+    /* background-color: white; */
+    background-color: rgba(255, 255, 255, 0.8);
     margin: 40px auto; /* Tạo khoảng cách dọc (40px) và căn giữa khối */
     padding: 30px 40px; /* Padding nội dung bên trong khối */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
     transition: all 0.3s ease-in-out;
 }
 
@@ -274,3 +275,4 @@ footer {
         flex-direction: column;
     }
 }
+
