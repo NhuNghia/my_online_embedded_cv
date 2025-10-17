@@ -1,0 +1,276 @@
+/*==========================================================
+  1. THIẾT LẬP CƠ BẢN & FONT (BASE STYLES)
+==========================================================*/
+body {
+    font-family: Arial, sans-serif; /* Font gốc: Arial */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    /* ĐÃ CHỈNH SỬA: Thay thế màu nền bằng ảnh nền */
+    background-image: url('Embedded1.jpg'); /* THAY THẾ bằng tên file ảnh của bạn */
+    background-size: cover; /* Đảm bảo ảnh nền phủ kín */
+    background-attachment: fixed; /* Giữ ảnh cố định khi cuộn trang */
+    background-color: #f4f4f4; 
+    background-color: #e5e0e0fd; /* Màu nền dự phòng nếu ảnh không tải được */
+    transition: background-color 0.5s ease; 
+}
+
+h1, h2, h3 {
+    color: #007BFF; /* Màu xanh nổi bật */
+}
+
+/* Các phần chính của trang: Loại bỏ padding đứng để khối thẻ con tự định nghĩa margin */
+.section {
+    padding: 0 40px; /* ĐÃ CHỈNH SỬA: Chỉ giữ padding ngang 40px */
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Nền xám cho Kỹ năng và Kinh nghiệm/Học vấn: ĐÃ ĐƠN GIẢN HÓA */
+.dark-bg {
+    /* Loại bỏ thuộc tính nền/padding cũ vì các khối chính đã là thẻ riêng */
+    background-color: transparent; 
+    padding: 0; 
+}
+
+/*==========================================================
+  2. PHẦN TIÊU ĐỀ (HEADER) - Áp dụng Ảnh Nền & Hiệu ứng
+  (GIỮ NGUYÊN CODE CỦA BẠN)
+==========================================================*/
+.hero-section {
+    /* Thiết lập ảnh nền */
+    /* background-image: url('Embedded1.jpg'); 
+    background-size: cover; 
+    background-position: center center;
+    background-repeat: no-repeat; */
+    
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Bóng đổ tạo chiều sâu */
+    /* QUAN TRỌNG: Thiết lập lại nền màu trong suốt */
+    background-color: transparent !important;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); 
+}
+
+.hero-section h1 {
+    color: white;
+    margin: 10px 0;
+    font-size: 3.5em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Hiệu ứng nổi cho chữ */
+}
+
+/* Tagline - Hiệu ứng nhấp nháy */
+.tagline {
+    font-size: 2.0em;
+    margin-bottom: 20px;
+    animation: pulse-color 5s infinite alternate; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes pulse-color {
+    0% { color: rgba(255, 255, 255, 0.996); } 
+    100% { color: rgba(255, 255, 255, 0.6); } 
+}
+
+.contact-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 1.7em;
+    transition: color 0.2s;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+    color: #FFD700; /* Màu vàng kim khi hover */
+}
+
+/* Tăng cỡ chữ cho địa chỉ */
+.contact-links span {
+    font-size: 1.7em;
+    font-weight: 700;
+    color: white;
+}
+
+/*==========================================================
+  3. STYLE CHUNG CHO 4 KHỐI NỘI DUNG CHÍNH (THE CARD BLOCK)
+==========================================================*/
+/* Áp dụng cùng một style thẻ/khối nổi cho 4 section chính (Cần gán ID trong HTML) */
+#objective, 
+#skills, /* Giả định ID cho Technical Skills */
+#projects, /* Giả định ID cho Personal Projects */
+#experience /* Giả định ID cho Work Experience & Education */
+{
+    background-color: white;
+    margin: 40px auto; /* Tạo khoảng cách dọc (40px) và căn giữa khối */
+    padding: 30px 40px; /* Padding nội dung bên trong khối */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease-in-out;
+}
+
+#objective:hover, 
+#skills:hover,
+#projects:hover,
+#experience:hover 
+{
+    /* HIỆU ỨNG NỔI CHUNG */
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* LOẠI BỎ CSS CŨ CHO #OBJECTIVE ĐỂ TRÁNH TRÙNG LẶP */
+
+/*==========================================================
+  4. PHẦN KỸ NĂNG (SKILLS) - NỘI DUNG CON
+==========================================================*/
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.skill-group {
+    /* Thẻ kỹ năng con nổi trên nền thẻ kỹ năng lớn */
+    flex: 1 1 200px;
+    background: #f8f8f8; /* Nền trắng xám nhẹ cho thẻ con */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    transition: all 0.3s ease-in-out; 
+}
+
+.skill-group:hover {
+    transform: translateY(-5px) scale(1.02); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
+    border: 1px solid #007BFF; 
+}
+
+.skill-group h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.skill-group ul {
+    list-style: none;
+    padding: 0;
+}
+
+/*==========================================================
+  5. PHẦN DỰ ÁN (PROJECTS) - NỘI DUNG CON
+==========================================================*/
+.project-card {
+    /* Thẻ dự án con nổi trên nền thẻ dự án lớn */
+    background: #f8f8f8; 
+    padding: 20px;
+    border-left: 5px solid #007BFF;
+    margin-bottom: 25px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out; 
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.01); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
+    border-left: 5px solid #FF8C00; 
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+.project-date {
+    float: right;
+    font-style: italic;
+    color: #6c757d;
+}
+
+.technology-used {
+    font-style: italic;
+    color: #007BFF; 
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: block; 
+}
+
+/*==========================================================
+  6. KINH NGHIỆM/HỌC VẤN (TIMELINE) - NỘI DUNG CON (Cần đơn giản hóa)
+==========================================================*/
+.timeline-item {
+    /* ĐÃ CHỈNH SỬA: Loại bỏ thuộc tính card để nó nằm phẳng trong khối lớn */
+    border-left: 3px solid #007BFF;
+    padding-left: 30px; 
+    position: relative;
+    margin-bottom: 30px;
+    
+    background: transparent; 
+    padding: 10px 0; 
+    border-radius: 0;
+    box-shadow: none;
+    transition: all 0.3s ease-in-out; 
+}
+
+.timeline-item:hover {
+    /* Hiệu ứng nổi nhẹ nhàng cho dòng khi hover */
+    transform: translateX(5px); 
+    box-shadow: none;
+    border-left: 3px solid #FF4500; 
+    background-color: #f7f7f7; /* Thêm nền xám nhẹ khi hover để làm nổi bật */
+}
+
+/* Chấm tròn trên đường timeline */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    top: 25px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #007BFF;
+    border: 3px solid white; /* Viền TRẮNG để khớp với nền khối lớn */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); 
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: #6c757d;
+}
+
+/*==========================================================
+  7. CHÂN TRANG (FOOTER)
+==========================================================*/
+footer {
+    text-align: center;
+    padding: 20px;
+    /* background-color: #333; */
+    color: white;
+    font-size: 0.9em;
+}
+
+/*==========================================================
+  8. RESPONSIVE (MEDIA QUERIES)
+==========================================================*/
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+    }
+}
